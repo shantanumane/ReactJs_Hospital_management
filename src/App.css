@@ -1,0 +1,45 @@
+.nav{
+  background: #bdc3c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.body{
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.img{
+  height: 500px;
+  padding: 0px;
+  width:1500px;
+  margin-top: 0px;
+}
+
+.back{
+  background-image: url(./b2.jpg);
+  height: 600px;
+  padding: 0px;
+  width:800px;
+  
+}
+.heading{
+  font-size: 60px;
+  color: #f3d8c2; 
+  font-family: fantasy;
+  
+
+}
+.cardback{
+  background: #abbaab;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to top, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to top, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.card{
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-right: 150px;
+}
