@@ -1,46 +1,58 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    @include('partials.head')
+</head>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+<body class="hold-transition skin-blue sidebar-mini">
 
-        @livewireStyles
+<div id="wrapper">
 
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <x-jet-banner />
+@include('partials.topbar')
+@include('partials.sidebar')
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
-
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
+<!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Main content -->
+        <section class="content">
+            @if(isset($siteTitle))
+                <h3 class="page-title">
+                    {{ $siteTitle }}
+                </h3>
             @endif
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+            <div class="row">
+                <div class="col-md-12">
 
-        @stack('modals')
+                    @if (Session::has('message'))
+                        <div class="alert alert-info">
+                            <p>{{ Session::get('message') }}</p>
+                        </div>
+                    @endif
+                    @if ($errors->count() > 0)
+                        <div class="alert alert-danger">
+                            <ul class="list-unstyled">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-        @livewireScripts
-    </body>
+                    @yield('content')
+
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+{!! Form::open(['route' => 'auth.logout', 'style' => 'display:none;', 'id' => 'logout']) !!}
+<button type="submit">Logout</button>
+{!! Form::close() !!}
+
+@include('partials.javascripts')
+</body>
 </html>
